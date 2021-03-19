@@ -14,9 +14,9 @@ h3 {
 .main-con {
   border: 3px inset;
   border-radius: 50px;
-  padding: 25px;
-  display: inline-flex;
-  flex-direction: column;
+  /* padding: 25px; */
+  /* align-content: center; */
+  width: fit-content;
 }
 
 .container {
@@ -25,10 +25,12 @@ h3 {
   border-radius: 50px;
   padding: 30px;
   display: inline-block;
-  min-width: 450px;
+  width: 400px;
+  /* height: 450px; */
   /* min-height: 200px; */
   background-color: white;
-  margin-bottom: 20px;
+  margin: 25px;
+  /* align-self: center; */
 }
 
 .pokemonName {
@@ -97,6 +99,7 @@ h3 {
 
 #stats table tr {
   /* border: solid; */
+  /* outline: solid thin; */
 }
 
 #stats table td {

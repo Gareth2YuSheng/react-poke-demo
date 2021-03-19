@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Link, useParams} from 'react-router-dom';
 import axios from 'axios';
+import Grid from '@material-ui/core/Grid';
 
 export default function PokemonInfo() {
     let { id } = useParams();
@@ -23,13 +24,14 @@ export default function PokemonInfo() {
             {(parseInt(id)-1)>0 && <Link to={"/pokemonInfo/"+(parseInt(id)-1)} className="pokemonName">Previous</Link>}<br/>
             {(parseInt(id)+1)<899 && <Link to={"/pokemonInfo/"+(parseInt(id)+1)} className="pokemonName">Next</Link>}<br/>
 
-            <div className={"main-con "+pokemonInfo.types[0].type.name}>
+            {/* <div className={"main-con "+pokemonInfo.types[0].type.name}> */}
+            <Grid container className={"main-con "+pokemonInfo.types[0].type.name}>
 
                 <div className="container">
                     <h2>{pokemonInfo.name.charAt(0).toUpperCase()+pokemonInfo.name.substring(1)+"  #"+pokemonInfo.id}</h2>
                     {pokemonInfo.sprites.other["official-artwork"].front_default && <img className="artwork" src={pokemonInfo.sprites.other["official-artwork"].front_default} alt="official artwork" />}
                 </div>
-                {/* <br/> */}
+                
                 <div className="container">
                     <h3>Sprites</h3>
                     <div style={{display:'flex'}}>    
@@ -70,33 +72,29 @@ export default function PokemonInfo() {
 
                 <div className="container">
                     <h3>Stats</h3>
-                    {/* <div id="stats">
-                        {pokemonInfo.stats.map(stat => (
-                            <p key={stat.stat.name} className="stat">
-                                {stat.stat.name.charAt(0).toUpperCase()+stat.stat.name.substring(1).replace("-"," ")+": "+stat.base_stat}
-                            </p>
-                        ))}
-                    </div> */}
                     <div id="stats">
                         <table>
-                            {pokemonInfo.stats.map(stat => (
-                                // <td key={stat.stat.name} className="stat">
-                                    // {stat.stat.name.charAt(0).toUpperCase()+stat.stat.name.substring(1).replace("-"," ")+": "+stat.base_stat}
-                                // </p>
+                            <tbody>
+                                {pokemonInfo.stats.map(stat => (
+                                    <tr key={stat.stat.name.charAt(0).toUpperCase()+stat.stat.name.substring(1).replace("-"," ")}>
+                                        <th>
+                                            {stat.stat.name.charAt(0).toUpperCase()+stat.stat.name.substring(1).replace("-"," ")}
+                                        </th>
+                                        <td>
+                                            {stat.base_stat}
+                                        </td>
+                                    </tr>
+                                ))}
                                 <tr>
-                                    <th>
-                                        {stat.stat.name.charAt(0).toUpperCase()+stat.stat.name.substring(1).replace("-"," ")}
-                                    </th>
-                                    <td>
-                                        {stat.base_stat}
-                                    </td>
+                                    <th key="total">Total</th>
+                                    <td>{[0, ...pokemonInfo.stats].reduce((total, num)=>{return total+num.base_stat;})}</td>
                                 </tr>
-                            ))}
+                            </tbody>
                         </table>
                     </div>
                 </div>
-
-            </div>
+            </Grid>
+            {/* </div> */}
 
         </div>
     )
