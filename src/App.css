@@ -1,0 +1,150 @@
+
+h2 {
+  font-size: 40px;
+  margin-bottom: 25px;
+}
+
+.pokemonName {
+  font-size: 19px;
+  text-decoration: none;
+}
+
+.pagination {
+  min-width: 80px;
+  min-height: 30px;
+  margin: 20px;
+  font-size: 17px;
+}
+
+.pokemonList {
+  justify-content: center;
+  /* border: 1px solid red; */
+  align-items: center;
+  padding-left: 20px;
+  /* list-style-image: url('pokeball_PNG24.png') no-repeat left top; */
+  list-style-type: none;
+}
+
+.sprite {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.sprite:hover {
+  border: 3px solid black;
+ transform: scale(2.0);
+   -webkit-transition-duration: 1s;
+ -moz-transition-duration: 1s;
+ -o-transition-duration: 1s;
+ transition-duration: 1s;
+  z-index: 3;
+  background-color: white;
+}
+
+h3 {
+  font-size: 29px;  
+  /* margin-bottom: -5px; */
+  text-decoration: underline;
+}
+
+.gender {
+  font-size: 20px;
+}
+
+.artwork {
+  height: 400px;
+  width: 400px;
+  /* border: 1px solid black; */
+  margin-bottom: -25px;
+  margin-top: -25px;
+}
+
+#abilities p, #stats p {
+  font-size: 19px;
+}
+
+.types {
+  display: flex;
+}
+
+.type {
+  /* border: 1.7px solid black; */
+  margin: 5px 10px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  color: #f5f3ed;
+  font-weight: bold;
+}
+
+.grass {
+  background-color: #78C850;
+}
+
+.poison {
+  background-color: #A040A0;
+}
+
+.fire {
+  background-color: #F08030;
+}
+
+.flying {
+  background-color: #A890F0;
+}
+
+.normal {
+  background-color: #A8A878;
+}
+
+.fighting {
+  background-color: #C03028;
+}
+
+.rock {
+  background-color: #B8A038;
+}
+
+.steel { 
+  background-color: #B8B8D0;
+}
+
+.dragon {
+  background-color: #7038F8;
+}
+
+.ground {
+  background-color: #E0C068;
+}
+
+.fairy {
+  background-color: #EE99AC;
+}
+
+.psychic {
+  background-color: #F85888;
+}
+
+.dark {
+  background-color: #705848;
+}
+
+.water {
+  background-color: #6890F0;
+}
+
+.ice {
+  background-color: #98D8D8;
+}
+
+.ghost {
+  background-color: #705898;
+}
+
+.electric {
+  background-color: #F8D030;
+}
+
+.bug {
+  background-color: #A8B820;
+}
