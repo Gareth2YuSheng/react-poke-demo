@@ -8,9 +8,13 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          {/* <Redirect exact from="/" to="/pokemonList" /> */}
-          <PokemonList />
+      <Route exact path="/">
+          <Redirect exact from="/" to="/pokemonList" />
+          {/* <PokemonList /> */}
+        </Route>
+        <Route exact path="/react-poke-demo">
+          <Redirect exact from="/" to="/pokemonList" />
+          {/* <PokemonList /> */}
         </Route>
         <Route exact path="/pokemonList">
           <PokemonList />
