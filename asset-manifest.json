@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-poke-demo/static/css/main.e53ac4a5.chunk.css",
-    "main.js": "/react-poke-demo/static/js/main.5c2b13ec.chunk.js",
-    "main.js.map": "/react-poke-demo/static/js/main.5c2b13ec.chunk.js.map",
+    "main.js": "/react-poke-demo/static/js/main.d330ef34.chunk.js",
+    "main.js.map": "/react-poke-demo/static/js/main.d330ef34.chunk.js.map",
     "runtime-main.js": "/react-poke-demo/static/js/runtime-main.6551fd2e.js",
     "runtime-main.js.map": "/react-poke-demo/static/js/runtime-main.6551fd2e.js.map",
     "static/js/2.e6f314a5.chunk.js": "/react-poke-demo/static/js/2.e6f314a5.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.6551fd2e.js",
     "static/js/2.e6f314a5.chunk.js",
     "static/css/main.e53ac4a5.chunk.css",
-    "static/js/main.5c2b13ec.chunk.js"
+    "static/js/main.d330ef34.chunk.js"
   ]
 }
