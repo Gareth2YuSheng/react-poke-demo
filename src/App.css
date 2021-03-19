@@ -79,8 +79,29 @@ h3 {
   margin-top: -25px;
 }
 
-#abilities p, #stats p {
+#abilities p, #stats table {
   font-size: 19px;
+}
+
+#abilities p:last-child {
+  margin-bottom: 0px;
+}
+
+#stats table {
+  margin-top: 10px;
+}
+
+#stats table th {
+  text-align: right;
+}
+
+#stats table tr {
+  /* border: solid; */
+}
+
+#stats table td {
+  text-align: left;
+  padding-left: 15px;
 }
 
 .types {

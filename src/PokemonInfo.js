@@ -70,12 +70,29 @@ export default function PokemonInfo() {
 
                 <div className="container">
                     <h3>Stats</h3>
-                    <div id="stats">
+                    {/* <div id="stats">
                         {pokemonInfo.stats.map(stat => (
                             <p key={stat.stat.name} className="stat">
                                 {stat.stat.name.charAt(0).toUpperCase()+stat.stat.name.substring(1).replace("-"," ")+": "+stat.base_stat}
                             </p>
                         ))}
+                    </div> */}
+                    <div id="stats">
+                        <table>
+                            {pokemonInfo.stats.map(stat => (
+                                // <td key={stat.stat.name} className="stat">
+                                    // {stat.stat.name.charAt(0).toUpperCase()+stat.stat.name.substring(1).replace("-"," ")+": "+stat.base_stat}
+                                // </p>
+                                <tr>
+                                    <th>
+                                        {stat.stat.name.charAt(0).toUpperCase()+stat.stat.name.substring(1).replace("-"," ")}
+                                    </th>
+                                    <td>
+                                        {stat.base_stat}
+                                    </td>
+                                </tr>
+                            ))}
+                        </table>
                     </div>
                 </div>
 
