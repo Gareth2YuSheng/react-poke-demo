@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Link, useParams} from 'react-router-dom';
 import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
+import InfoPagination from './InfoPagination';
 
 export default function PokemonInfo() {
     let { id } = useParams();
@@ -32,14 +33,11 @@ export default function PokemonInfo() {
     if (loading) return "Loading..."
 
     return (
-        <div style={{paddingLeft: "60px", paddingTop: "20px"}}>
+        <div style={{padding:"20px 60px"}}>
             <Link to="/react-poke-demo" className="pokemonName navLink">Back to List</Link>
             {/* <Link to="/pokemonList" className="pokemonName">Back to List</Link><br/> */}
-            <div className="pagination">
-                {(pokemonInfo.id-1)>0 && <Link to={"/pokemonInfo/"+(pokemonInfo.id-1)} className="pokemonName previous navLink">&laquo; Previous</Link>}
-                {(pokemonInfo.id+1)<899 && <Link to={"/pokemonInfo/"+(pokemonInfo.id+1)} className="pokemonName next navLink">Next &raquo;</Link>}
-            </div>
-            
+
+            <InfoPagination id={pokemonInfo.id} />            
 
             <Grid container className={"main-con "+pokemonInfo.types[0].type.name}>
 
