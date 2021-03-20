@@ -12,12 +12,12 @@ export default function PokemonInfo() {
     
     useEffect(() => {
         axios.get("https://pokeapi.co/api/v2/pokemon/"+id).then(res => {
-            console.log("fetched");
             setPokemonInfo(res.data);
             setLoading(false);
             setSpriteBtnSelected([res.data.types[0].type.name, ""]);
+            setSpriteShiny(false);
         })
-    }, [])
+    }, [id])
 
     function toggleSpriteDefault() {
         setSpriteShiny(false);
@@ -33,10 +33,13 @@ export default function PokemonInfo() {
 
     return (
         <div style={{paddingLeft: "60px", paddingTop: "20px"}}>
-            <Link to="/react-poke-demo" className="pokemonName">Back to List</Link><br/>
+            <Link to="/react-poke-demo" className="pokemonName navLink">Back to List</Link>
             {/* <Link to="/pokemonList" className="pokemonName">Back to List</Link><br/> */}
-            {(parseInt(id)-1)>0 && <Link to={"/pokemonInfo/"+(parseInt(id)-1)} className="pokemonName">Previous</Link>}<br/>
-            {(parseInt(id)+1)<899 && <Link to={"/pokemonInfo/"+(parseInt(id)+1)} className="pokemonName">Next</Link>}<br/>
+            <div className="pagination">
+                {(pokemonInfo.id-1)>0 && <Link to={"/pokemonInfo/"+(pokemonInfo.id-1)} className="pokemonName previous navLink">&laquo; Previous</Link>}
+                {(pokemonInfo.id+1)<899 && <Link to={"/pokemonInfo/"+(pokemonInfo.id+1)} className="pokemonName next navLink">Next &raquo;</Link>}
+            </div>
+            
 
             <Grid container className={"main-con "+pokemonInfo.types[0].type.name}>
 
