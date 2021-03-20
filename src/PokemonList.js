@@ -42,7 +42,7 @@ export default function PokemonList() {
             <h2>Pokémon</h2>
             <ul className="pokemonList">
                 {pokemon.map(p => (
-                    <li>
+                    <li key={p.name}>
                         <Link style={{}} to={"/pokemonInfo/"+p.url.substring(34,p.url.length-1)} className="pokemonName" key={p.name}>{p.name.charAt(0).toUpperCase()+p.name.substring(1)}</Link>
                     </li>
                 ))}

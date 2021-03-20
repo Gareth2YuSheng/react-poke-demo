@@ -8,7 +8,7 @@ function App() {
     <Router>
       <Switch>
       <Route exact path="/">
-          <Redirect exact from="/" to="/pokemonList" />
+          <Redirect exact from="/" to="/react-poke-demo" />
           {/* <PokemonList /> */}
         </Route>
         <Route exact path="/react-poke-demo">

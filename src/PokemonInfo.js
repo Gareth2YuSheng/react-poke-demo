@@ -7,13 +7,27 @@ export default function PokemonInfo() {
     let { id } = useParams();
     const [pokemonInfo, setPokemonInfo] = useState();
     const [loading, setLoading] = useState(true);
+    const [spriteShiny, setSpriteShiny] = useState(false);
+    const [spriteBtnSelected, setSpriteBtnSelected] = useState(["", ""]);
     
     useEffect(() => {
         axios.get("https://pokeapi.co/api/v2/pokemon/"+id).then(res => {
+            console.log("fetched");
             setPokemonInfo(res.data);
             setLoading(false);
+            setSpriteBtnSelected([res.data.types[0].type.name, ""]);
         })
-    })
+    }, [])
+
+    function toggleSpriteDefault() {
+        setSpriteShiny(false);
+        setSpriteBtnSelected([pokemonInfo.types[0].type.name, ""]);
+    }
+
+    function toggleSpriteShiny() {
+        setSpriteShiny(true);
+        setSpriteBtnSelected(["", pokemonInfo.types[0].type.name]);
+    }
 
     if (loading) return "Loading..."
 
@@ -24,7 +38,6 @@ export default function PokemonInfo() {
             {(parseInt(id)-1)>0 && <Link to={"/pokemonInfo/"+(parseInt(id)-1)} className="pokemonName">Previous</Link>}<br/>
             {(parseInt(id)+1)<899 && <Link to={"/pokemonInfo/"+(parseInt(id)+1)} className="pokemonName">Next</Link>}<br/>
 
-            {/* <div className={"main-con "+pokemonInfo.types[0].type.name}> */}
             <Grid container className={"main-con "+pokemonInfo.types[0].type.name}>
 
                 <div className="container">
@@ -33,18 +46,41 @@ export default function PokemonInfo() {
                 </div>
                 
                 <div className="container">
-                    <h3>Sprites</h3>
-                    <div style={{display:'flex'}}>    
-                        <div className="male">
-                            {pokemonInfo.sprites.front_female && <h4 className="gender">Male</h4>}
-                            {pokemonInfo.sprites.front_default && <img className="sprite" src={pokemonInfo.sprites.front_default} alt={pokemonInfo.name+" front"} />}
-                            {pokemonInfo.sprites.back_default && <img className="sprite" src={pokemonInfo.sprites.back_default} alt={pokemonInfo.name+" back"} />}
-                        </div>
-                        {pokemonInfo.sprites.front_female && <div className="female">
-                            <h4 className="gender">Female</h4>
-                            {pokemonInfo.sprites.front_female && <img className="sprite" src={pokemonInfo.sprites.front_female} alt={pokemonInfo.name+" front"} />}
-                            {pokemonInfo.sprites.back_female && <img className="sprite" src={pokemonInfo.sprites.back_female} alt={pokemonInfo.name+" back"} />}
+                    <h3 id="spritesHeading">Sprites</h3>
+
+                    <div id="spriteToggleBtnCon">
+                        <button className={"spriteToggleBtn "+spriteBtnSelected[0]} onClick={toggleSpriteDefault} >Default</button>
+                        <button className={"spriteToggleBtn "+spriteBtnSelected[1]} onClick={toggleSpriteShiny} >Shiny</button>
+                    </div>
+
+                    <div style={{display:'flex'}}>   
+
+                        {!spriteShiny && <div id="default_sprite">
+                            <div className="male">
+                                {pokemonInfo.sprites.front_female && <h4 className="gender">Male</h4>}
+                                {pokemonInfo.sprites.front_default && <img className="sprite" src={pokemonInfo.sprites.front_default} alt={pokemonInfo.name+" front"} />}
+                                {pokemonInfo.sprites.back_default && <img className="sprite" src={pokemonInfo.sprites.back_default} alt={pokemonInfo.name+" back"} />}
+                            </div>
+                            {pokemonInfo.sprites.front_female && <div className="female">
+                                <h4 className="gender">Female</h4>
+                                {pokemonInfo.sprites.front_female && <img className="sprite" src={pokemonInfo.sprites.front_female} alt={pokemonInfo.name+" front"} />}
+                                {pokemonInfo.sprites.back_female && <img className="sprite" src={pokemonInfo.sprites.back_female} alt={pokemonInfo.name+" back"} />}
+                            </div>}
                         </div>}
+
+                        {spriteShiny && <div id="shiny_sprite">
+                            <div className="male">
+                                {pokemonInfo.sprites.front_shiny_female && <h4 className="gender">Male</h4>}
+                                {pokemonInfo.sprites.front_shiny && <img className="sprite" src={pokemonInfo.sprites.front_shiny} alt={pokemonInfo.name+" shiny front"} />}
+                                {pokemonInfo.sprites.back_shiny && <img className="sprite" src={pokemonInfo.sprites.back_shiny} alt={pokemonInfo.name+" shiny back"} />}
+                            </div>
+                            {pokemonInfo.sprites.front_shiny_female && <div className="female">
+                                <h4 className="gender">Female</h4>
+                                {pokemonInfo.sprites.front_shiny_female && <img className="sprite" src={pokemonInfo.sprites.front_shiny_female} alt={pokemonInfo.name+" shiny front"} />}
+                                {pokemonInfo.sprites.back_shiny_female && <img className="sprite" src={pokemonInfo.sprites.back_shiny_female} alt={pokemonInfo.name+" shiny back"} />}
+                            </div>}
+                        </div>}
+
                     </div>
                 </div>
 
@@ -94,7 +130,6 @@ export default function PokemonInfo() {
                     </div>
                 </div>
             </Grid>
-            {/* </div> */}
 
         </div>
     )

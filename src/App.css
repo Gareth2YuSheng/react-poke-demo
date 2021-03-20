@@ -73,6 +73,23 @@ h3 {
   background-color: white;
 }
 
+#spritesHeading{
+  width: fit-content;
+}
+
+#spriteToggleBtnCon {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.spriteToggleBtn {
+  width: 50%;
+  font-size: 20px;
+  font-family:'Courier New', Courier, monospace;
+  font-weight: bold;
+  height: 35px;
+}
+
 .artwork {
   height: 400px;
   width: 400px;
@@ -102,11 +119,12 @@ h3 {
 }
 
 #stats table td {
-  padding-left: 50px;
+  /* padding-left: 50px; */
   /* padding-right: 10px; */
   width: 35%;
   /* align-content: center; */
-  align-items: center;
+  /* align-items: center; */
+  text-align: center;
 }
 
 table, th, td {
