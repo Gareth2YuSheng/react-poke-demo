@@ -3,6 +3,9 @@ import Pagination from './Pagination';
 import axios from 'axios';
 import './App.css';
 import {Link} from 'react-router-dom';
+import logo from './logo_crop.png';
+import mudkip from './mudkip.png';
+import Grid from '@material-ui/core/Grid';
 
 export default function PokemonList() {
     const [pokemon, setPokemon] = useState([]);
@@ -38,16 +41,31 @@ export default function PokemonList() {
     
     
     return (
-        <div>
-            <h2>Pokémon</h2>
-            <ul className="pokemonList">
-                {pokemon.map(p => (
-                    <li key={p.name}>
-                        <Link style={{}} to={"/pokemonInfo/"+p.url.substring(34,p.url.length-1)} className="pokemonName" key={p.name}>{p.name.charAt(0).toUpperCase()+p.name.substring(1)}</Link>
-                    </li>
-                ))}
-            </ul>
-            <Pagination nextPage={nextPageUrl ? nextPage : null} prevPage={prevPageUrl ? prevPage : null} /> 
+        <div style={{padding:"20px 60px"}}>
+            <Grid container className="main-con red" >
+                <div className="container">
+                    <img className="logo" src={logo} alt="pokemon" />
+                    <img className="art" src={mudkip} alt="mudkip" />
+                </div>
+
+                {/* <div className="container">
+                    <h3>Pokémon Search</h3>
+                    
+                </div> */}
+                
+                <div className="container">
+                    <h3>List of Pokémon</h3>
+                    <ul className="pokemonList">
+                        {pokemon.map(p => (
+                            <li key={p.name}>
+                                <Link style={{}} to={"/pokemonInfo/"+p.url.substring(34,p.url.length-1)} className="pokemonName" key={p.name}>{p.name.charAt(0).toUpperCase()+p.name.substring(1)}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                    <Pagination nextPage={nextPageUrl ? nextPage : null} prevPage={prevPageUrl ? prevPage : null} /> 
+                </div>
+                
+            </Grid>
         </div>
     )
 }
