@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import Pagination from './Pagination';
+import SearchPoke from './SearchPoke';
 import axios from 'axios';
-import './App.css';
 import {Link} from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
 import logo from './logo_crop.png';
 import mudkip from './mudkip.png';
-import Grid from '@material-ui/core/Grid';
+import './App.css';
 
 export default function PokemonList() {
     const [pokemon, setPokemon] = useState([]);
@@ -48,10 +49,12 @@ export default function PokemonList() {
                     <img className="art" src={mudkip} alt="mudkip" />
                 </div>
 
-                {/* <div className="container">
+                <div className="container">
                     <h3>Pokémon Search</h3>
-                    
-                </div> */}
+                    <div className="searchCon" style={{ }}>
+                        <SearchPoke />
+                    </div>
+                </div>
                 
                 <div className="container">
                     <h3>List of Pokémon</h3>

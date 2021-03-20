@@ -3,6 +3,7 @@ import {Link, useParams} from 'react-router-dom';
 import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import InfoPagination from './InfoPagination';
+import SearchPoke from './SearchPoke';
 
 export default function PokemonInfo() {
     let { id } = useParams();
@@ -17,6 +18,8 @@ export default function PokemonInfo() {
             setLoading(false);
             setSpriteBtnSelected([res.data.types[0].type.name, ""]);
             setSpriteShiny(false);
+        }).catch(error => {
+            console.log(error)
         })
     }, [id])
 
@@ -36,6 +39,11 @@ export default function PokemonInfo() {
         <div style={{padding:"20px 60px"}}>
             <Link to="/react-poke-demo" className="pokemonName navLink">Back to List</Link>
             {/* <Link to="/pokemonList" className="pokemonName">Back to List</Link><br/> */}
+
+            <div className="searchConSide">
+                <SearchPoke />
+            </div>
+            
 
             <InfoPagination id={pokemonInfo.id} />            
 
