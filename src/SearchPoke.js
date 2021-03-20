@@ -18,7 +18,7 @@ export default function SearchPoke() {
 
     return (
         <div id="search">
-            <input className="searchBar" type="text" placeholder="Search.." onChange={(e) => setSearchParams(e.target.value)} onKeyUp={handleKeyPress}  />
+            <input className="searchBar" type="text" placeholder="Search for Pokemon by name or Pokedex no. (e.g. Ditto or 132)" onChange={(e) => setSearchParams(e.target.value)} onKeyUp={handleKeyPress}  />
             <button className="searchButton" onClick={search} type="submit"><i className="fa fa-search"></i></button>                        
         </div> 
     )

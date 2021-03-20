@@ -19,7 +19,8 @@ export default function PokemonInfo() {
             setSpriteBtnSelected([res.data.types[0].type.name, ""]);
             setSpriteShiny(false);
         }).catch(error => {
-            console.log(error)
+            setLoading(false);
+            // console.log(error)
         })
     }, [id])
 
@@ -43,102 +44,108 @@ export default function PokemonInfo() {
             <div className="searchConSide">
                 <SearchPoke />
             </div>
+
+            {!pokemonInfo && <div className="error">
+                Pokemon not found
+            </div>}
             
+            {pokemonInfo && <div>
+                <InfoPagination id={pokemonInfo.id} />            
 
-            <InfoPagination id={pokemonInfo.id} />            
+                <Grid container className={"main-con "+pokemonInfo.types[0].type.name}>
 
-            <Grid container className={"main-con "+pokemonInfo.types[0].type.name}>
-
-                <div className="container">
-                    <h2>{pokemonInfo.name.charAt(0).toUpperCase()+pokemonInfo.name.substring(1)+"  #"+pokemonInfo.id}</h2>
-                    {pokemonInfo.sprites.other["official-artwork"].front_default && <img className="artwork" src={pokemonInfo.sprites.other["official-artwork"].front_default} alt="official artwork" />}
-                </div>
-                
-                <div className="container">
-                    <h3 id="spritesHeading">Sprites</h3>
-
-                    <div id="spriteToggleBtnCon">
-                        <button className={"spriteToggleBtn "+spriteBtnSelected[0]} onClick={toggleSpriteDefault} >Default</button>
-                        <button className={"spriteToggleBtn "+spriteBtnSelected[1]} onClick={toggleSpriteShiny} >Shiny</button>
+                    <div className="container">
+                        <h2>{pokemonInfo.name.charAt(0).toUpperCase()+pokemonInfo.name.substring(1)+"  #"+pokemonInfo.id}</h2>
+                        {pokemonInfo.sprites.other["official-artwork"].front_default && <img className="artwork" src={pokemonInfo.sprites.other["official-artwork"].front_default} alt="official artwork" />}
                     </div>
+                    
+                    <div className="container">
+                        <h3 id="spritesHeading">Sprites</h3>
 
-                    <div style={{display:'flex'}}>   
+                        <div id="spriteToggleBtnCon">
+                            <button className={"spriteToggleBtn "+spriteBtnSelected[0]} onClick={toggleSpriteDefault} >Default</button>
+                            <button className={"spriteToggleBtn "+spriteBtnSelected[1]} onClick={toggleSpriteShiny} >Shiny</button>
+                        </div>
 
-                        {!spriteShiny && <div id="default_sprite">
-                            <div className="male">
-                                {pokemonInfo.sprites.front_female && <h4 className="gender">Male</h4>}
-                                {pokemonInfo.sprites.front_default && <img className="sprite" src={pokemonInfo.sprites.front_default} alt={pokemonInfo.name+" front"} />}
-                                {pokemonInfo.sprites.back_default && <img className="sprite" src={pokemonInfo.sprites.back_default} alt={pokemonInfo.name+" back"} />}
-                            </div>
-                            {pokemonInfo.sprites.front_female && <div className="female">
-                                <h4 className="gender">Female</h4>
-                                {pokemonInfo.sprites.front_female && <img className="sprite" src={pokemonInfo.sprites.front_female} alt={pokemonInfo.name+" front"} />}
-                                {pokemonInfo.sprites.back_female && <img className="sprite" src={pokemonInfo.sprites.back_female} alt={pokemonInfo.name+" back"} />}
+                        <div style={{display:'flex'}}>   
+
+                            {!spriteShiny && <div id="default_sprite">
+                                <div className="male">
+                                    {pokemonInfo.sprites.front_female && <h4 className="gender">Male</h4>}
+                                    {pokemonInfo.sprites.front_default && <img className="sprite" src={pokemonInfo.sprites.front_default} alt={pokemonInfo.name+" front"} />}
+                                    {pokemonInfo.sprites.back_default && <img className="sprite" src={pokemonInfo.sprites.back_default} alt={pokemonInfo.name+" back"} />}
+                                </div>
+                                {pokemonInfo.sprites.front_female && <div className="female">
+                                    <h4 className="gender">Female</h4>
+                                    {pokemonInfo.sprites.front_female && <img className="sprite" src={pokemonInfo.sprites.front_female} alt={pokemonInfo.name+" front"} />}
+                                    {pokemonInfo.sprites.back_female && <img className="sprite" src={pokemonInfo.sprites.back_female} alt={pokemonInfo.name+" back"} />}
+                                </div>}
                             </div>}
-                        </div>}
 
-                        {spriteShiny && <div id="shiny_sprite">
-                            <div className="male">
-                                {pokemonInfo.sprites.front_shiny_female && <h4 className="gender">Male</h4>}
-                                {pokemonInfo.sprites.front_shiny && <img className="sprite" src={pokemonInfo.sprites.front_shiny} alt={pokemonInfo.name+" shiny front"} />}
-                                {pokemonInfo.sprites.back_shiny && <img className="sprite" src={pokemonInfo.sprites.back_shiny} alt={pokemonInfo.name+" shiny back"} />}
-                            </div>
-                            {pokemonInfo.sprites.front_shiny_female && <div className="female">
-                                <h4 className="gender">Female</h4>
-                                {pokemonInfo.sprites.front_shiny_female && <img className="sprite" src={pokemonInfo.sprites.front_shiny_female} alt={pokemonInfo.name+" shiny front"} />}
-                                {pokemonInfo.sprites.back_shiny_female && <img className="sprite" src={pokemonInfo.sprites.back_shiny_female} alt={pokemonInfo.name+" shiny back"} />}
+                            {spriteShiny && <div id="shiny_sprite">
+                                <div className="male">
+                                    {pokemonInfo.sprites.front_shiny_female && <h4 className="gender">Male</h4>}
+                                    {pokemonInfo.sprites.front_shiny && <img className="sprite" src={pokemonInfo.sprites.front_shiny} alt={pokemonInfo.name+" shiny front"} />}
+                                    {pokemonInfo.sprites.back_shiny && <img className="sprite" src={pokemonInfo.sprites.back_shiny} alt={pokemonInfo.name+" shiny back"} />}
+                                </div>
+                                {pokemonInfo.sprites.front_shiny_female && <div className="female">
+                                    <h4 className="gender">Female</h4>
+                                    {pokemonInfo.sprites.front_shiny_female && <img className="sprite" src={pokemonInfo.sprites.front_shiny_female} alt={pokemonInfo.name+" shiny front"} />}
+                                    {pokemonInfo.sprites.back_shiny_female && <img className="sprite" src={pokemonInfo.sprites.back_shiny_female} alt={pokemonInfo.name+" shiny back"} />}
+                                </div>}
                             </div>}
-                        </div>}
 
+                        </div>
                     </div>
-                </div>
 
-                <div className="container">
-                    <h3>Type(s)</h3>
-                    <div className="types">
-                        {pokemonInfo.types.map(type => (
-                            <p key={type.type.name} className={"type "+type.type.name}>
-                                {type.type.name.charAt(0).toUpperCase()+type.type.name.substring(1)}
-                            </p>
-                        ))}
+                    <div className="container">
+                        <h3>Type(s)</h3>
+                        <div className="types">
+                            {pokemonInfo.types.map(type => (
+                                <p key={type.type.name} className={"type "+type.type.name}>
+                                    {type.type.name.charAt(0).toUpperCase()+type.type.name.substring(1)}
+                                </p>
+                            ))}
+                        </div>
                     </div>
-                </div>
 
-                <div className="container">
-                    <h3>Abilities</h3>
-                    <div id="abilities">
-                        {pokemonInfo.abilities.map(ability => (
-                            <p key={ability.ability.name} className="ability">
-                                {ability.is_hidden ? ability.ability.name.charAt(0).toUpperCase()+ability.ability.name.substring(1)+" (hidden)" : ability.ability.name.charAt(0).toUpperCase()+ability.ability.name.substring(1)}
-                            </p>
-                        ))}
+                    <div className="container">
+                        <h3>Abilities</h3>
+                        <div id="abilities">
+                            {pokemonInfo.abilities.map(ability => (
+                                <p key={ability.ability.name} className="ability">
+                                    {ability.is_hidden ? ability.ability.name.charAt(0).toUpperCase()+ability.ability.name.substring(1)+" (hidden)" : ability.ability.name.charAt(0).toUpperCase()+ability.ability.name.substring(1)}
+                                </p>
+                            ))}
+                        </div>
                     </div>
-                </div>
 
-                <div className="container">
-                    <h3>Stats</h3>
-                    <div id="stats">
-                        <table>
-                            <tbody>
-                                {pokemonInfo.stats.map(stat => (
-                                    <tr key={stat.stat.name.charAt(0).toUpperCase()+stat.stat.name.substring(1).replace("-"," ")}>
-                                        <th>
-                                            {stat.stat.name.charAt(0).toUpperCase()+stat.stat.name.substring(1).replace("-"," ")}
-                                        </th>
-                                        <td>
-                                            {stat.base_stat}
-                                        </td>
+                    <div className="container">
+                        <h3>Stats</h3>
+                        <div id="stats">
+                            <table>
+                                <tbody>
+                                    {pokemonInfo.stats.map(stat => (
+                                        <tr key={stat.stat.name.charAt(0).toUpperCase()+stat.stat.name.substring(1).replace("-"," ")}>
+                                            <th>
+                                                {stat.stat.name.charAt(0).toUpperCase()+stat.stat.name.substring(1).replace("-"," ")}
+                                            </th>
+                                            <td>
+                                                {stat.base_stat}
+                                            </td>
+                                        </tr>
+                                    ))}
+                                    <tr>
+                                        <th key="total">Total</th>
+                                        <td>{[0, ...pokemonInfo.stats].reduce((total, num)=>{return total+num.base_stat;})}</td>
                                     </tr>
-                                ))}
-                                <tr>
-                                    <th key="total">Total</th>
-                                    <td>{[0, ...pokemonInfo.stats].reduce((total, num)=>{return total+num.base_stat;})}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-            </Grid>
+                </Grid>
+            </div>}
+            
 
         </div>
     )

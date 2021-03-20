@@ -10,13 +10,15 @@
   }
 }
 
+.error {
+  font-size: 35px;
+}
+
 .red {
   background-color: #ec2016;
 }
 
 .logo {
-  /* max-height: 180px;
-  max-width: 365px; */
   width: 100%;
   margin-bottom: 10px;
 }
@@ -29,8 +31,10 @@
 #footer {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
-  /* margin: 20px; */
   position: absolute;
+  padding-top: 30px;
+  padding-bottom:40px;
+  padding-left: 20px;
 }
 
 a {
@@ -91,18 +95,14 @@ h3 {
   border: 3px inset;
   border-radius: 50px;
   width: fit-content;
-  /* margin-bottom: 10px; */
 }
 
 .container {
-  /* border: 2px inset black; */
   border: 3px inset;
   border-radius: 50px;
   padding: 30px;
   display: inline-block;
   width: 400px;
-  /* height: 450px; */
-  /* min-height: 200px; */
   background-color: white;
   margin: 25px;
 }
@@ -130,7 +130,6 @@ h3 {
 #search {
   text-align: center;
   width: 100%;
-  /* margin-bottom: 20px; */
 }
 
 .searchBar {
@@ -151,7 +150,7 @@ h3 {
 }
 
 .searchConSide {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .gender {
