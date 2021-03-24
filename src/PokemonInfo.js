@@ -108,7 +108,7 @@ export default function PokemonInfo() {
                             ))}
                         </div>
                     </div>
-
+                    
                     <div className="container">
                         <h3>Abilities</h3>
                         <div id="abilities">
@@ -117,6 +117,14 @@ export default function PokemonInfo() {
                                     {ability.is_hidden ? ability.ability.name.charAt(0).toUpperCase()+ability.ability.name.substring(1)+" (hidden)" : ability.ability.name.charAt(0).toUpperCase()+ability.ability.name.substring(1)}
                                 </p>
                             ))}
+                        </div>
+                    </div>
+
+                    <div className="container">
+                        <h3>Height & Weight</h3>
+                        <div id="hnw">
+                            <h4>Height:</h4><p>{pokemonInfo.height/10+" m"}</p>
+                            <h4>Weight:</h4><p>{pokemonInfo.weight/10+" kg"}</p>
                         </div>
                     </div>
 

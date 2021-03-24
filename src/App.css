@@ -91,6 +91,11 @@ h3 {
   background-color: rgb(212, 212, 212);
 }
 
+h4 {
+  /* font-size: 20px; */
+    
+}
+
 .main-con {
   border: 3px inset;
   border-radius: 50px;
@@ -200,6 +205,10 @@ h3 {
 
 #abilities p:last-child {
   margin-bottom: 0px;
+}
+
+#hnw h4, #hnw p {
+  font-size: 20px;
 }
 
 #stats table {
