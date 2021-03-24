@@ -38,8 +38,7 @@ export default function PokemonInfo() {
 
     return (
         <div style={{padding:"20px 60px"}}>
-            <Link to="/react-poke-demo" className="pokemonName navLink">Back to List</Link>
-            {/* <Link to="/pokemonList" className="pokemonName">Back to List</Link><br/> */}
+            <Link to="/react-poke-demo" className="pokemonName navLink">Back to Home</Link>
 
             <div className="searchConSide">
                 <SearchPoke />
