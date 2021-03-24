@@ -238,6 +238,8 @@ table, th, td {
 .types {
   display: flex;
   margin-top: 20px;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .type {
