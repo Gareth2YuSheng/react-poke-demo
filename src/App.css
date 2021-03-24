@@ -211,6 +211,10 @@ h4 {
   font-size: 20px;
 }
 
+#hnw h4 {
+  margin-bottom: -10px;
+}
+
 #stats table {
   margin-top: 10px;
   width: 100%;
