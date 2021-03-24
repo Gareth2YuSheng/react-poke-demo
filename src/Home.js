@@ -3,7 +3,6 @@ import Pagination from './Pagination';
 import SearchPoke from './SearchPoke';
 import PokemonList from './PokemonList';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import logo from './logo_crop.png';
 import mudkip from './mudkip.png';
@@ -29,7 +28,7 @@ export default function Home() {
         })
 
     return () => cancel();
-    },[currentPageUrl])
+    },[currentPageUrl]);
 
     function nextPage() {
     setCurrentPageUrl(nextPageUrl);

@@ -1,5 +1,6 @@
 import Home from './Home';
 import PokemonInfo from './PokemonInfo';
+import PokemonType from './PokemonType';
 import {Route, Switch, BrowserRouter as Router, Redirect } from 'react-router-dom';
 
 function App() {
@@ -15,6 +16,9 @@ function App() {
         </Route>
         <Route exact path="/pokemonInfo/:id">
           <PokemonInfo />
+        </Route>
+        <Route exact path="/type/:id">
+          <PokemonType />
         </Route>
       </Switch>
     </Router>

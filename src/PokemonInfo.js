@@ -20,9 +20,8 @@ export default function PokemonInfo() {
             setSpriteShiny(false);
         }).catch(error => {
             setLoading(false);
-            // console.log(error)
         })
-    }, [id])
+    }, [id]);
 
     function toggleSpriteDefault() {
         setSpriteShiny(false);
@@ -101,9 +100,7 @@ export default function PokemonInfo() {
                         <h3>Type(s)</h3>
                         <div className="types">
                             {pokemonInfo.types.map(type => (
-                                <p key={type.type.name} className={"type "+type.type.name}>
-                                    {type.type.name.charAt(0).toUpperCase()+type.type.name.substring(1)}
-                                </p>
+                                <Link key={type.type.name} to={"/type/"+type.type.name} className={"type "+type.type.name}>{type.type.name.charAt(0).toUpperCase()+type.type.name.substring(1)}</Link>
                             ))}
                         </div>
                     </div>

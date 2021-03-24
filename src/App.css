@@ -91,6 +91,10 @@ h3 {
   background-color: rgb(212, 212, 212);
 }
 
+#typename {
+  margin-bottom: 0;
+}
+
 .main-con {
   border: 3px inset;
   border-radius: 50px;
@@ -194,7 +198,7 @@ h3 {
   margin-top: -25px;
 }
 
-#abilities p, #stats table {
+#abilities p, #stats table, p {
   font-size: 19px;
 }
 
@@ -242,6 +246,11 @@ table, th, td {
   border-radius: 5px;
   color: white;
   font-weight: bold;
+  font-family: initial;
+}
+
+.typeAnD {
+  margin-bottom: 20px;
 }
 
 .grass {
