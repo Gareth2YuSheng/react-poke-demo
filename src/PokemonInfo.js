@@ -110,7 +110,7 @@ export default function PokemonInfo() {
                         <div id="abilities">
                             {pokemonInfo.abilities.map(ability => (
                                 <p key={ability.ability.name} className="ability">
-                                    {ability.is_hidden ? ability.ability.name.charAt(0).toUpperCase()+ability.ability.name.substring(1)+" (hidden)" : ability.ability.name.charAt(0).toUpperCase()+ability.ability.name.substring(1)}
+                                    {ability.is_hidden ? <Link to={"/ability/"+ability.ability.name} className="">{ability.ability.name.charAt(0).toUpperCase()+ability.ability.name.substring(1)+" (hidden)"}</Link> : <Link to={"/ability/"+ability.ability.name} className="">{ability.ability.name.charAt(0).toUpperCase()+ability.ability.name.substring(1)}</Link>}
                                 </p>
                             ))}
                         </div>

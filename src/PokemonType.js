@@ -25,6 +25,8 @@ export default function PokemonType() {
 
     return (
         <div style={{padding:"20px 60px"}}>
+            <Link to="/react-poke-demo" className="pokemonName navLink">Back to Home</Link>
+            
             <Grid container className={"main-con "+id} >
 
                 <div className="container">

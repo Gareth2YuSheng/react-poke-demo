@@ -214,18 +214,19 @@ h3 {
   margin-bottom: -10px;
 }
 
-#stats table {
-  margin-top: 10px;
+ table {
+  margin-top: 20px;
   width: 100%;
+  font-size: 19px;
 }
 
-#stats table th {
+ table th {
   padding-right: 7px;
   padding-left: 10px;
   width: 65%;
 }
 
-#stats table td {
+ table td {
   width: 35%;
   text-align: center;
 }
@@ -233,6 +234,10 @@ h3 {
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
+}
+
+#typename {
+  margin-bottom: 0;
 }
 
 .types {
