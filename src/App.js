@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <Switch>
-      <Route exact path="/">
+        <Route exact path="/">
           <Redirect exact from="/" to="/react-poke-demo" />
         </Route>
         <Route exact path="/react-poke-demo">

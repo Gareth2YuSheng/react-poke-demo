@@ -4,6 +4,7 @@ import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import InfoPagination from './InfoPagination';
 import SearchPoke from './SearchPoke';
+import Loading from './Loading';
 
 export default function PokemonInfo() {
     let { id } = useParams();
@@ -20,6 +21,7 @@ export default function PokemonInfo() {
             setSpriteShiny(false);
         }).catch(error => {
             setLoading(false);
+            setPokemonInfo(null);
         })
     }, [id]);
 
@@ -33,7 +35,7 @@ export default function PokemonInfo() {
         setSpriteBtnSelected(["", pokemonInfo.types[0].type.name]);
     }
 
-    if (loading) return "Loading..."
+    if (loading) return <Loading />;
 
     return (
         <div style={{padding:"20px 60px"}}>

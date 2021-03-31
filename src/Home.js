@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Pagination from './Pagination';
 import SearchPoke from './SearchPoke';
 import PokemonList from './PokemonList';
+import Loading from './Loading';
 import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import logo from './logo_crop.png';
@@ -38,7 +39,7 @@ export default function Home() {
     setCurrentPageUrl(prevPageUrl);
     }
 
-    if (loading) return "Loading...";
+    if (loading) return <Loading />;
     
     
     return (

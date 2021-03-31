@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Link, useParams} from 'react-router-dom';
 import axios from 'axios';
 import PokemonList from './PokemonList';
+import Loading from './Loading';
 import Grid from '@material-ui/core/Grid';
 
 export default function PokemonAbility() {
@@ -57,7 +58,7 @@ export default function PokemonAbility() {
         return arr;
     }
 
-    if (loading) return "Loading...";
+    if (loading) return <Loading />;
 
     return (
         <div style={{padding:"20px 60px"}}>

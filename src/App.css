@@ -5,7 +5,7 @@
 
 @media screen and (min-device-width: 1173px){
   /* some CSS here */
-  .searchCon {
+  .searchCon {  
     height: 60vw;
   }
 }

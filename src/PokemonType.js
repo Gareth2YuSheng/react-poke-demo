@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Link, useParams} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import PokemonList from './PokemonList';
+import Loading from './Loading';
 
 export default function PokemonType() {
     let { id } = useParams();
@@ -21,7 +22,7 @@ export default function PokemonType() {
         })
     },[id]);
 
-    if (loading) return "Loading...";
+    if (loading) return <Loading />;
 
     return (
         <div style={{padding:"20px 60px"}}>
