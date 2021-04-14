@@ -111,9 +111,17 @@ h3 {
   margin: 25px;
 }
 
-.pokemonName {
+.pokemonName, .moveName {
   font-size: 19px;
   text-decoration: none;
+}
+
+.moveList {
+  margin-left: -10px;
+}
+
+.moveName {
+  margin-bottom: 5px;
 }
 
 .pagination {

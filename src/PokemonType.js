@@ -33,6 +33,7 @@ export default function PokemonType() {
                 <div className="container">
                     <h2 id="typename">{type}</h2>
                     <p>{"Introduced in Generation "+typeInfo.generation.name.split("-")[1].toUpperCase()}</p>
+                    
                     <div className="typeAnD">
                         <h3>Attack</h3>
                         <p>{type+" is Super Efective against:"}</p>
@@ -48,6 +49,7 @@ export default function PokemonType() {
                             ))}
                         </div>
                     </div>
+
                     <div className="typeAnD">
                         <h3>Defence</h3>
                         <p>{"Types that have No Effect against "+type+":"}</p>
@@ -68,6 +70,15 @@ export default function PokemonType() {
                                 <Link key={type.name} to={"/type/"+type.name} className={"type "+type.name}>{type.name.charAt(0).toUpperCase()+type.name.substring(1)}</Link>
                             ))}
                         </div>
+                    </div>
+
+                    <div className="typeAnD">
+                        <h3>Moves</h3>
+                        <ul className="moveList">
+                            {typeInfo.moves.map(move => (
+                                <li key={move.name} className="moveName">{move.name.charAt(0).toUpperCase()+move.name.substring(1)}</li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
                 
