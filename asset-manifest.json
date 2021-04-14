@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/react-poke-demo/static/css/main.098bdb5e.chunk.css",
-    "main.js": "/react-poke-demo/static/js/main.4fb0b47d.chunk.js",
-    "main.js.map": "/react-poke-demo/static/js/main.4fb0b47d.chunk.js.map",
+    "main.css": "/react-poke-demo/static/css/main.d51d4ad3.chunk.css",
+    "main.js": "/react-poke-demo/static/js/main.2ac51b66.chunk.js",
+    "main.js.map": "/react-poke-demo/static/js/main.2ac51b66.chunk.js.map",
     "runtime-main.js": "/react-poke-demo/static/js/runtime-main.6551fd2e.js",
     "runtime-main.js.map": "/react-poke-demo/static/js/runtime-main.6551fd2e.js.map",
     "static/js/2.0f97a924.chunk.js": "/react-poke-demo/static/js/2.0f97a924.chunk.js",
     "static/js/2.0f97a924.chunk.js.map": "/react-poke-demo/static/js/2.0f97a924.chunk.js.map",
     "index.html": "/react-poke-demo/index.html",
-    "static/css/main.098bdb5e.chunk.css.map": "/react-poke-demo/static/css/main.098bdb5e.chunk.css.map",
+    "static/css/main.d51d4ad3.chunk.css.map": "/react-poke-demo/static/css/main.d51d4ad3.chunk.css.map",
     "static/js/2.0f97a924.chunk.js.LICENSE.txt": "/react-poke-demo/static/js/2.0f97a924.chunk.js.LICENSE.txt",
     "static/media/logo_crop.905b5a51.png": "/react-poke-demo/static/media/logo_crop.905b5a51.png",
     "static/media/mudkip.63418b14.png": "/react-poke-demo/static/media/mudkip.63418b14.png"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.6551fd2e.js",
     "static/js/2.0f97a924.chunk.js",
-    "static/css/main.098bdb5e.chunk.css",
-    "static/js/main.4fb0b47d.chunk.js"
+    "static/css/main.d51d4ad3.chunk.css",
+    "static/js/main.2ac51b66.chunk.js"
   ]
 }
